@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{this.item.title}}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    </head>
+    <body>
+    <page-header></page-header>
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row gx-4 gx-lg-5 align-items-center">
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" :src="item.image" alt="..."></div>
+                    <div class="col-md-6">
+                        <h1 class="display-5 fw-bolder">{{item.title}}</h1>
+                        <h5>{{item.price}} $</h5>
+                        <p class="lead">{{item.description}}</p>
+                        <span id="itemId" hidden>{{item.id}}</span>
+                        <div class="d-flex">
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button" disabled v-if="isInCart">
+                                Already in cart
+                            </button>
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button" onclick="
+function getCookie(cname) {
+  let name = cname + '=';
+  let ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return '';
+}
+
+if(getCookie('cart') === '') document.cookie = 'cart='+getElementById('itemId').innerHTML + ';path=/';
+else document.cookie = 'cart=' + getCookie('cart') + '+' + getElementById('itemId').innerHTML + ';path=/';
+document.location.href = document.location.href;
+" v-if="!isInCart">
+                                Add to cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

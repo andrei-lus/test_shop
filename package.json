@@ -1,0 +1,16 @@
+{
+  "name": "nuxt_shop",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js",
+    "run": "node app.js"
+  },
+  "author": "Andrew Lushin",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "vue": "^2.6.14",
+    "vue-server-renderer": "^2.6.14"
+  }
+}
